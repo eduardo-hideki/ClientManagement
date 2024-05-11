@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Hideki\\source\\repos\\ListagemClientes\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ListagemClientes.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ListagemClientes.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Hideki\\source\\repos\\ListagemClientes\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Hideki\\source\\repos\\ListagemClientes\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Hideki\\source\\repos\\ListagemClientes\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Hideki\\source\\repos\\ListagemClientes\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ListagemClientes.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ListagemClientes.props",
+      "PackagePath": "build\\ListagemClientes.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ListagemClientes.props",
+      "PackagePath": "buildMultiTargeting\\ListagemClientes.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ListagemClientes.props",
+      "PackagePath": "buildTransitive\\ListagemClientes.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

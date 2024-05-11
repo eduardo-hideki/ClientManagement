@@ -1,0 +1,77 @@
+﻿@page "/"
+
+<PageTitle>Clientes - Home</PageTitle>
+
+<h1>Clientes</h1>
+
+<p>Consulte os seus Clientes cadastrados na sua Loja ou realize o cadastro de novos Clientes.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th><input type="checkbox" @bind="checkedValue"></th>
+                <th>Nome/Razão Social</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Data de cadastro</th>
+                <th>Bloqueado</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td><input type="checkbox" @bind="forecast.Checked"></td>
+                    <td>@forecast.Name</td>
+                    <td>@forecast.Email</td>
+                    <td>@forecast.Telephone</td>
+                    <td>@forecast.RegisterDate.ToShortDateString()</td>
+                    <td><input type="checkbox" @bind="forecast.Blocked"></td>
+                    <td>@forecast.TemperatureC</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Client[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+
+        var startDate = DateOnly.FromDateTime(DateTime.Now);
+        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        forecasts = Enumerable.Range(1, 5).Select(index => new Client
+            {
+                RegisterDate = startDate.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Name = summaries[Random.Shared.Next(summaries.Length)],
+                Telephone = $"({Random.Shared.Next(01, 27).ToString().PadLeft(2, '0')}) {Random.Shared.Next(90000, 99999)}-{Random.Shared.Next(1, 9999).ToString().PadLeft(4,'0')}",
+                Email = summaries[Random.Shared.Next(summaries.Length)].ToLower() + "@" + summaries[Random.Shared.Next(summaries.Length)].ToLower() + ".com"
+            }).ToArray();
+    }
+
+    private class Client
+    {
+        public DateOnly RegisterDate { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Telephone { get; set; }
+        public int TemperatureC { get; set; }
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        public bool Checked { get; set; }
+        public bool Blocked { get; set; }
+    }
+
+    public bool checkedValue { get; set; }
+}
